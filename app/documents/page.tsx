@@ -1,38 +1,45 @@
 import React from 'react'
-import DocumentCard from '../components/DocumentCard'
+import Userdocument from '../components/Userdocument'
 
-
-interface document {
+interface userdocumentitem{
+    username:string
+    documentid:number;
+    documentnumber:string;
+    documentversion:string;
+    training_complete_date:string;
+}
+interface u {
     id: number;
-    documentname: string; 
-    documentcode: string;
-    documenttype: string;
-    documentnumber: string;
-    risklevel: string;
+    username: string;
+    email_address:string;
+    firstname:string;
+    surname:string;
     }
 
 
 const DocumentsPage  = async () => {
-    const res = await fetch('http://localhost:8080/api/documents/all');
-    const docs : document [] = await res.json();
+    
+    const user_c = await fetch(`http://localhost:8080/api/users/user/21`,);
+    const current_user : u = await user_c.json();
+
+    const res = await fetch(`http://localhost:8080/api/documents/getdocumentsbyuserid/21`,);
+    const docs : userdocumentitem [] = await res.json();
+
+   // tslint:disable-next-line:no-console  
+    console.log(user_c.json());
+
     return (
-    <div>
-        <h1>Documents List</h1>
+    <div className='name'><b>{current_user.firstname}'s Documents List</b><div/>
         <ul>
-            {docs.map(doc => 
-            <li key={doc.id}> 
-                <DocumentCard 
-                id={doc.id}
-                documentcode={doc.documentcode}
-                documentnumber={doc.documentnumber} 
-                documentname={doc.documentname}
-                documenttype={doc.documenttype}
-                risklevel={doc.risklevel}
-                />
+            {/* {users.map(user =><li key= {user.id}>{user.username}</li>)} */}
+            {docs.map(doc =>
+            <li key={doc.documentid}>
+                <Userdocument documentid={doc.documentid} documentnumber={doc.documentnumber} training_complete_date={doc.training_complete_date} 
+                documentversion={doc.documentversion}/> 
             </li>)}
         </ul>
     </div>
   )
-}
+}  
 
 export default DocumentsPage;

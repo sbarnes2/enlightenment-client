@@ -13,7 +13,7 @@ const Usercard = (u : User) =>{
             <div className="name">name: {u.username}</div>
             <div className="email">email: {u.email_address}</div>
         </div>
-    );
+    )
 }
 
 export default Usercard
