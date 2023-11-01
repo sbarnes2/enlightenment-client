@@ -99,3 +99,8 @@ body {
 .btn-blue:hover {
   @apply bg-blue-700;
 }
+
+.item-doc-version{
+  padding-left:100px;
+  text-align: center;
+}
