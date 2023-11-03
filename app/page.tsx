@@ -4,13 +4,14 @@ import Link from 'next/link'
 export default function Home() {
   return (
         <main>
-        <h1 className='heading'>binx Healthcare ltd.</h1>
         <p className='intro'>Welcome to the binx training management application</p>
-        <div className='linksdiv'>
+        <div className='container mx-auto px-4'>
+          <div className='w-full h-screen bg-black-300'>
           <ul>
-            <li className='linklistitem'><Link href="users">Users List</Link></li>
-            <li className='linklistitem'><Link href="documents">User Documents List</Link></li>
+            <li className=''><Link href="users">Users List</Link></li>
+            <li className=''><Link href="documents">Example of User email links</Link></li>
           </ul>
+          </div>
         </div>
         </main>
       )

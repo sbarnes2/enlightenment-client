@@ -12,15 +12,13 @@ const UsersPage  = async () => {
     const users : user [] = await res.json();
     return (
     <div>
-        <h1>Users Page</h1>
-        <h2>Shows a list of users</h2>
-        <ul>
-            <div>
-                {users.map(user =><li key={user.id}><Usercard id={user.id} username={user.username} email_address={user.email_address}/></li>)}
-            </div>
-        </ul>
+        <table className='table table-lg table-bordered'>
+            <thead><tr><th>Name</th><th>Email Address</th><th>Action</th></tr></thead>
+            <tbody>
+                {users.map(user =><tr key={user.id}><td>{user.username}</td><td>{user.email_address}</td><td><button className='btn btn-primary'>Edit</button></td></tr>)}
+            </tbody>
+            
+        </table>
     </div>
-  )
-}
-
+  );}
 export default UsersPage

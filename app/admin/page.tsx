@@ -1,11 +1,16 @@
 
-import React from 'react'
+import Link from 'next/link';
+import React from 'react';
 
-const Usermanagepage = () => {
+const Administration = () => {
   return (
-    <div><h1>User Management</h1>
+    <div><h1>Administration</h1>
+
+      <Link className='px-3' href='./admin/team'>Team</Link>
+      <Link className='px-3' href='./admin/users'>Users</Link>
+      <Link className='px-3' href=''>Documents</Link>
     </div>
   )
-}
+};
 
-export default Usermanagepage
+export default Administration

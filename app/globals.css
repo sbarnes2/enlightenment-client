@@ -1,7 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
+/* 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -58,37 +58,7 @@ body {
   color: aquamarine;
 }
 
-/* .item{
-  padding: 5px;
-  width:35%;
-  border-radius: 10px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: bisque;
-  color: bisque;  
-  text-align: left;
-}
 
-.documentItemLine{
-  padding: 5px;
-}
-
-.documentItemName{
-  color: bisque;  
-  text-align: left;
-  float: left;
-  width: 20%;
-}
-
-.documentItemData{
-  color: white;  
-  text-align: left;
-}
-
-.column {
-  float: left;
-  width: 20%;
-} */
 
 .btn {
   @apply font-bold py-2 px-4 rounded;
@@ -99,8 +69,4 @@ body {
 .btn-blue:hover {
   @apply bg-blue-700;
 }
-
-.item-doc-version{
-  padding-left:100px;
-  text-align: center;
-}
+ */

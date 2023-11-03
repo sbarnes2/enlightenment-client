@@ -6,6 +6,7 @@ interface userdocumentstatusitem{
     username:string;
     email_address:string;
     documentqtid:string;
+    documenttitle:string;
     usercurrentrevision:string;
     rev:string;
 };
@@ -24,29 +25,28 @@ function handleClick (){
 
 
 const DocumentsPage  = async () => {
-    
-/*     const user_c = await fetch(`http://localhost:8080/api/users/user/21`,);
+  
+    const userid:number = 1;  
+    const user_c = await fetch(`http://localhost:8080/api/users/user/${userid}`,);
     const current_user : u [] = await user_c.json();
- */
-    const userid:number = 21;
+
     const res = await fetch(`http://localhost:8080/api/documents/getdocumentsbyuserid/${userid}`,);
     const docs : userdocumentstatusitem [] = await res.json();
 
-    console.log('number of user documents : '+docs.length);
-    console.log(docs[23]);
     return (
-    <div>
-        <p>Please Review the following documents :</p>
+    <div className='overflow-x-auto'>
+        <p>{current_user[0].firstname} please review the following documents :</p>
         <br></br>
-            <table >
-                <thead><tr><th>Document Number</th><th>Current Document Revision</th><th>Target Document Revision</th></tr></thead>
+            <table className='table table-lg table-bordered'>
+                <thead><tr><th className=''>Document Number</th><th>Document Name</th><th>Current Document Revision</th><th>Target Document Revision</th></tr></thead>
                 <tbody>
                 {docs.map(doc =>
                     <tr key={doc.documentqtid}>
                         <td>{doc.documentqtid}</td>
-                        <td className='item-doc-version'>{doc.usercurrentrevision}</td>
-                        <td className='item-doc-version'>{doc.rev}</td>
-                        <td><button className='btn btn-blue' onClick={handleClick} >Reviewed</button></td>
+                        <td>{doc.documenttitle}</td>
+                        <td className=''>{doc.usercurrentrevision}</td>
+                        <td className=''>{doc.rev}</td>
+                        <td><button className='btn btn-primary' >Update</button></td>
                     </tr>
                 )}
                 </tbody>
