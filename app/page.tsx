@@ -10,6 +10,7 @@ export default function Home() {
           <ul>
             <li className=''><Link href="users">Users List</Link></li>
             <li className=''><Link href="documents">Example of User email links</Link></li>
+            <li><div className='card'>example 1</div></li>
           </ul>
           </div>
         </div>

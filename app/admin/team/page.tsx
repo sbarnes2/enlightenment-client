@@ -32,7 +32,7 @@ return (
             <summary className="m-1 btn">Managers</summary>
             <ul className='p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52'>
                 {
-                    managers.map(manager=><li key={manager.id} className="btn">{manager.username}</li>)
+                    managers.map(manager=><li key={manager.id} className="">{manager.username}</li>)
                 }
             </ul>
         </details>
@@ -40,10 +40,10 @@ return (
         <table className="table table-bordered">
             <thead><tr><th>User Name</th><th>In Team?</th></tr></thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td><input type='checkbox' checked={false} className='checkbox' /></td>
-                </tr>
+                {current_user.map(n_manager =>
+                <tr key={n_manager.id}>
+                    <td className="">{n_manager.username}</td><td><input type='checkbox' checked={false} className='checkbox' /></td>
+                </tr>)};
             </tbody>
         </table>
 

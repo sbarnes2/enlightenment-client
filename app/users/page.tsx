@@ -1,24 +1,15 @@
 import React from 'react'
-import Usercard from '../components/UserCard'
+import Usercard  from '../components/Usercard';
 
-interface user {
-    id: number;
-    username: string;
-    email_address:string;
-    }
     
 const UsersPage  = async () => {
     const res = await fetch('http://localhost:8080/api/users/all');
     const users : user [] = await res.json();
     return (
-    <div>
-        <table className='table table-lg table-bordered'>
-            <thead><tr><th>Name</th><th>Email Address</th><th>Action</th></tr></thead>
-            <tbody>
-                {users.map(user =><tr key={user.id}><td>{user.username}</td><td>{user.email_address}</td><td><button className='btn btn-primary'>Edit</button></td></tr>)}
-            </tbody>
-            
-        </table>
+    <div className='pt-10'>
+        <div className='grid gap-4 grid-cols-3'>
+            {users.map(u =><tr key={u.id}><Usercard currentuser={u}/></tr>)}
+        </div>
     </div>
   );}
 export default UsersPage
