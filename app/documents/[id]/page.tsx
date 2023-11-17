@@ -13,8 +13,8 @@ async function getDocumentData(userid:number){
 
 
 const DocumentsPage  = async ({params}:any) => {
-    const current_user:u [] = await getUserData(params.id);
-    const docs : userdocumentstatusitem [] = await getDocumentData(params.id);
+    const current_user:uAPI [] = await getUserData(params.id);
+    const docs : any [] = await getDocumentData(params.id);
 
     return (
 
@@ -22,10 +22,10 @@ const DocumentsPage  = async ({params}:any) => {
         <p>{current_user[0].firstname} please review the following documents :</p>
         <br></br>
             {<table className='table table-bordered'>
-                <thead><tr><th className=''>Document Number</th><th>Document Name</th><th>Current Document Revision</th><th>Target Document Revision</th></tr></thead>
+                <thead><tr><th className=''>Document Number</th><th>Document Name</th><th>Current Document Revision</th><th>Target Document Revision</th><th>Risk Level</th></tr></thead>
                 <tbody>
                     {docs.map(doc =>
-                        <TrainingRequired key={doc.documentqtid} currentdoc={doc}/>
+                        <TrainingRequired key={doc.doc_id} currentdoc={doc}/>
                     )}
                 </tbody>
             </table>

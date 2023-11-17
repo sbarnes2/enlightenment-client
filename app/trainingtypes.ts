@@ -1,26 +1,25 @@
 // import type {GetServerSideProps} from 'next'
 
-interface userdocumentstatusitem{
-    userid:number;
-/*     username:string;
-    email_address:string; */
-    documentqtid:string;
-    documenttitle?:string;
-    usercurrentrevision?:string;
-    rev?:string;
-};
 
-interface u {
+type DocumentCardItem = {
+    id: number;
+    documentname: string; 
+    documentcode: string;
+    documenttype: string;
+    documentnumber: string;
+    risklevel: string;
+}
+
+interface uAPI {
     id: number;
     username: string;
     email_address:string;
     firstname:string;
     surname:string;
+    manager_id:number;
+    logo:string;
+    team_id:number;
+    team_name:string;
+    job_title:string;
 };
 
-interface user {
-    id: number;
-    username: string;
-    email_address:string;
-    logo:string;
-    };

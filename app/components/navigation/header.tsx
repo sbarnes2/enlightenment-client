@@ -7,11 +7,16 @@ async function getSession(){
     return await getServerSession(options);
 }
 
+async function logout()
+{
+    const promise = await getServerSession();
+    
+}
+
 export const Header:React.FC = async () =>{
     return <header className="navbar bg-primary text-primary-content">
-        <div className="navbar-start"><Image src='/binx_health.webp' alt="logo" width={102} height={60}/></div>
+        <div className="navbar-start"><Link href='/'><Image src='/binx_health.webp' alt="logo" width={102} height={60}/></Link></div>
         <div className='navbar-end'>
-            <div className="px-3"><Link href='/about'>About</Link></div>
             <div className="px-3"><Link href='/admin'>Admin</Link></div>
             <div className="px-3"><Link href='/authenticate'>{await getSession() ? ('log out'):('log in')}</Link></div>
         </div>

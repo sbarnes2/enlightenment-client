@@ -1,28 +1,29 @@
+'use client'
 import React from "react";
 import NextFunctionComponent from 'next'
 
-type DocumentCardItem = {
-    id: number;
-    documentname: string; 
-    documentcode: string;
-    documenttype: string;
-    documentnumber: string;
-    risklevel: string;
+function goToDocument(id:number){
+
 }
 
 
-const DocumentCard = (d:DocumentCardItem) =>{
+
+const DocumentCard = ({d}:any) =>{
 
     return  (
-    <div className="item">
-        <ul className="documentItemLine">
-            <li key={d.id}><p className="documenetItemName column">QT9 reference     :</p><p className="documentItemData">{d.documentnumber}</p></li>
-            <li key={d.id}><p className="documenetItemName column">Document Code     :</p><p className="documentItemData">{d.documentcode}</p></li>
-            <li key={d.id}><p className="documenetItemName column">Document Title    :</p><p className="documentItemData">{d.documentname}</p></li>
-            <li key={d.id}><p className="documenetItemName column">Document Type     :</p><p className="documentItemData">{d.documenttype}</p></li>
-        </ul>
-        <button className="btn btn-blue">Add to List</button>
-    </div>
+        <div className="card top-10">
+            <figure>
+                {/* eslint-disable-next-line @next/next/no-img-element*/}
+                 <img src='/document.png' width='80' height='80' alt='user'/>
+            </figure>
+            <div className="card-body flex items-center">
+                <div className="card-title">{d.documentnumber}</div>
+                <p>{d.documentname}</p>
+                <div className="card-actions justify-end">
+                    <button className="btn btn-primary" onClick={()=>{alert(d.id)}}>Trainee</button>
+                </div>
+            </div>
+        </div>
     );
 }
 
