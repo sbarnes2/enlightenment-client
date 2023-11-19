@@ -1,15 +1,19 @@
 'use client'
 import React from "react";
 import NextFunctionComponent from 'next'
-
-function goToDocument(id:number){
-
-}
-
+import { useRouter } from 'next/navigation'
 
 
 const DocumentCard = ({d}:any) =>{
 
+
+    const router = useRouter();
+
+    function goToDocument(id:number){
+        router.push('https://mybinxhealth.qt9app1.com/documents.aspx?docid='+id);
+    }
+
+    console.log(JSON.stringify(d));
     return  (
         <div className="card top-10">
             <figure>
@@ -20,7 +24,7 @@ const DocumentCard = ({d}:any) =>{
                 <div className="card-title">{d.documentnumber}</div>
                 <p>{d.documentname}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary" onClick={()=>{alert(d.id)}}>Trainee</button>
+                    <button className="btn btn-primary" onClick={()=>goToDocument(d.doc_id)}>View</button>
                 </div>
             </div>
         </div>

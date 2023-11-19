@@ -8,6 +8,7 @@ type DocumentCardItem = {
     documenttype: string;
     documentnumber: string;
     risklevel: string;
+    doc_id:number;
 }
 
 interface uAPI {
