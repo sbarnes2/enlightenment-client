@@ -15,9 +15,10 @@ export default function TeamCard({currentuser}:any){
             </figure>
             <div className="card-body flex items-center">
                 <div className="card-title">{currentuser.username}</div>
-                <p>{currentuser.team_name}</p>
+                <p>{currentuser.jobtitle}</p>
+                <p>{currentuser.teamname}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary" onClick={()=>router.push(`/admin/users/${currentuser.id}`)}>TEAM members</button>
+                    <button className="btn btn-primary" onClick={()=>router.push(`/admin/team/${currentuser.teamid}`)}>TEAM members</button>
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@ async function getUserData(userid:number){
 };
 
 async function getDocumentData(userid:number){
-    const res =  await fetch(`http://localhost:8080/api/documents/getdocumentsbyuserid/${userid}`,{ cache: 'no-store' });
+    const res =  await fetch(`http://localhost:8080/api/documents/getdocumentsbyuserid/`+userid,{ cache: 'no-store' });
     return res.json();
 };
 

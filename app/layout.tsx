@@ -1,8 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Image from 'next/image'
 import { Header } from './components/navigation/header'
-import { Footer } from './components/navigation/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   title: 'binx Healthcare - Enlightenment',
   description: 'Training management',
 }
+
+
 
 export default function RootLayout({
   children,

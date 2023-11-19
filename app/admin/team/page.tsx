@@ -3,7 +3,7 @@ import TeamCard from '@/app/components/TeamCard';
 
     
 const ManagersPage  = async () => {
-    const res = await fetch('http://localhost:8080/api/users/getmanagers');
+    const res = await fetch('http://localhost:8080/api/users/getmanagerlist');
     const users : uAPI [] = await res.json();
     return (
     <div className='pt-10'>
