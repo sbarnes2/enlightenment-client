@@ -12,8 +12,6 @@ const DocumentCard = ({d}:any) =>{
     function goToDocument(id:number){
         router.push('https://mybinxhealth.qt9app1.com/documents.aspx?docid='+id);
     }
-
-    console.log(JSON.stringify(d));
     return  (
         <div className="card top-10">
             <figure>
