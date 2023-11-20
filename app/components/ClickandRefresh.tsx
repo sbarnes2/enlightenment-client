@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 
 
 
-const ClickandRefresh = (name:string) => {
+const ClickandRefresh = () => {
 
    
     const router = useRouter();
@@ -14,7 +14,7 @@ const ClickandRefresh = (name:string) => {
     
     return (
         <>
-            <button onClick={()=>handleRefresh()}>${name}</button>
+            <button onClick={()=>handleRefresh()}></button>
         </>
     );
 }

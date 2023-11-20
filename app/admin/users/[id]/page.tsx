@@ -1,5 +1,5 @@
 import React from 'react'
-import Usercard  from '../../../components/Usercard';
+import Usercard  from '../../../components/TeamUserCard';
 
 
     

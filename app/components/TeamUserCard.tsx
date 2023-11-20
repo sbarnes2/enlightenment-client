@@ -5,9 +5,17 @@ import React from "react";
 
 
 
-export default function UserCard({currentuser}:any,){
+export default function TeamUserCard({currentuser}:any,){
 
     const router = useRouter();
+    
+    async function removeFromTeam(){
+        console.log("currentuser = "+JSON.stringify(currentuser));
+        const res = await fetch(`http://localhost:8080/api/users/removefromteam/`+currentuser.userid,);
+        const c = res.json();
+        alert("Please refresh the screen.  Auto refresh is broken at the moment");
+        router.replace('http://localhost:3000/admin/team/'+currentuser.team_id);
+    };
     
     return (
         <div className='card card-side flex items-center' key={currentuser.userid}>
@@ -17,12 +25,11 @@ export default function UserCard({currentuser}:any,){
             </figure>
             <div className="card-body flex items-center">
                 <div className="card-title">{currentuser.username}</div>
-                <p>{currentuser.name != ''?currentuser.name:'Employee'}</p>
-                <div className="card-actions grid grid-cols-3">
+                <p>{currentuser.jobtitle != ''?currentuser.jobtitle:'Employee'}</p>
+                <div className="card-actions justify-end grid grid-cols-2">
                     <button className="btn btn-primary" onClick={() => router.push(`/documents/${currentuser.userid}`)}>outstanding documents</button>
-                    <button className="btn btn-primary" onClick={() => router.push(`/admin/roles/${currentuser.userid}`)}>Manage Roles</button>
-                    <button className="btn btn-warning" onClick={() => router.push(`/documents/${currentuser.userid}`)}>Delete User</button>
-                 </div>
+                    <button className="btn btn-secondary" onClick={()=> removeFromTeam()}>Remove From Team</button>
+                </div>
             </div>
         </div>
     )
