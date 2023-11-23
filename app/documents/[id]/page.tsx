@@ -24,8 +24,7 @@ const DocumentsPage  = async ({params}:any) => {
             {<table className='table table-bordered'>
                 <thead><tr><th className=''>Document Number</th><th>Document Name</th><th>Current Document Revision</th><th>Target Document Revision</th><th>Risk Level</th></tr></thead>
                 <tbody>
-                    {docs.map(doc =>
-                        <TrainingRequired key={doc.doc_id} currentdoc={doc}/>
+                    {docs.map(doc =><TrainingRequired key={doc.doc_id} currentdoc={doc}/>
                     )}
                 </tbody>
             </table>
