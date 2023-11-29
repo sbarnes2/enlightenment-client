@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 
 function TeamRoles({param}:any){
 
-    const user = param.id;
+    ///const user = param.id;
 
     return(
         <div>

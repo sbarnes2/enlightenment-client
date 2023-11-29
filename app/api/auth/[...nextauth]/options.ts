@@ -3,6 +3,8 @@ import GitHubProvider from 'next-auth/providers/github'
 import CredentialsProvider from "next-auth/providers/credentials";
 import Credentials from "next-auth/providers/credentials";
 
+//https://medium.com/simform-engineering/office-365-login-in-next-js-using-nextauth-js-beb1f18e05d8
+
 export const options:NextAuthOptions = {
     providers:[
         GitHubProvider({
