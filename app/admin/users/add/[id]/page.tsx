@@ -9,18 +9,13 @@ const AddNewUser = () =>{
     const { register, handleSubmit, formState } = useForm();
     const { errors } = formState;
 
-
-
     const fields ={
         firstName: register('firstName', { required: 'First Name is required' }),
         lastName: register('lastName', { required: 'Last Name is required' }),
         username: register('username', { required: 'Username is required' })
-/*         team: register('team', { required: 'team is required' }),
-        title: register('title', { required: 'title is required' }) */
-
     }
 
-    async function onSubmit(user:any){
+    async function onSubmit({team}:any){
         const response = await fetch(process.env.API_HOST_BASE+'/api/users/createuser',{
             method:'POST',
             mode:"cors",
@@ -31,15 +26,17 @@ const AddNewUser = () =>{
             },
             redirect:'follow',
             referrerPolicy:'no-referrer',
-            body:JSON.stringify(user)
+            body:JSON.stringify(team)
         });
 
         return response.json();
     }
 
     return (
-        <div className="card items-center">
-            <h4 className="card-header">Add New User</h4>
+        <div className="hero min-h-screen bg-base-200">
+        <div className="hero-content">
+        <div className="card w-96 bg-base-100 shadow-xl">
+            <h4 className="card-header"><div className="text-2xl">Add New Team Member</div></h4>
             <div className="card-body">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="MB-3 Grid grid-cols-2">
@@ -56,17 +53,27 @@ const AddNewUser = () =>{
                         <label className="form-label">Username</label>
                         <input {...fields.username} type="text" className={`form-control ${errors.username ? 'is-invalid' : ''}`} />
                         <div className="invalid-feedback">{errors.username?.message?.toString()}</div>
-                    </div>
-                        <button disabled={formState.isSubmitting} className="btn btn-primary">
-                        {formState.isSubmitting && <span className="spinner-border spinner-border-sm me-1"></span>}
-                        Add User
-                    </button>
-                    <Link href="/" className="btn btn-link">Cancel</Link>
-                    <button className="btn btn-secondary">Add Job Title</button>
-                    <button className="btn btn-secondary">Add Team</button>
+                    </div>   
+                    <div className="grid grid-cols-2 gap-3">
+                                <button disabled={formState.isSubmitting} className="btn btn-primary">
+                                    {formState.isSubmitting && <span className="spinner-border spinner-border-sm me-1"></span>}
+                                    Update
+                                </button>
+                                  <Link href="/" className="btn btn-link">Cancel</Link>
+                                </div>             
+                    </form>
+                    <div className="space-y-3 py-6">
 
-                </form>
+                                <div className="grid grid-cols-2 gap-3">
+                                    <button className="btn btn-secondary" onClick={()=>{}}>Add Role Title</button>
+                                    <button className="btn btn-secondary" onClick={()=>{}}>Add Team</button>
+                                </div>
+                            </div>
+
+
             </div>
+        </div>
+        </div>
         </div>
     );
 };

@@ -24,3 +24,14 @@ interface uAPI {
     job_title:string;
 };
 
+type currentUserType = {
+    name:string,
+    team_id:string,
+    userid:string,
+    username:string,
+    manager: boolean,
+    target_team_id:string,
+};
+
+
+interface datavars  {data_users: currentUserType[], data_target_team_id:string }

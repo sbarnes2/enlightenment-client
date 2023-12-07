@@ -6,8 +6,9 @@ import { useRouter } from 'next/navigation';
 
 function UserButtonSet (userid:any):any {
     const router = useRouter();
+    const id = 4;
 
-    function handleAddUser(){router.push('/admin/users/add');}
+    function handleAddUser(){router.push('/admin/users/add/'+id);}
     function handleManageRoles(){router.push('@/admin/roles');}
     function handleTeamDocuments(){}
 

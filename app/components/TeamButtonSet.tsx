@@ -6,16 +6,17 @@ import { useRouter } from 'next/navigation';
 
 function TeamButtonSet (teamid:any):any {
     const router = useRouter();
+    const team_id = teamid.team_id;
 
-    function handleAddTeam(teamid:any){router.push('/admin/users/add');}
-    function handleManageRoles(){router.push('/admin/roles/team/'+teamid);}
+    function handleAddToTeam(){router.push('/admin/users/'+team_id);}
+    function handleManageRoles(){router.push('/admin/roles/team/'+team_id);}
     function handleTeamDocuments(){}
 
     return (
         <div className='grid gap-4 grid-cols-3 items-center'>
-            <button className='btn btn-accent col-span-1' onClick={()=>handleAddTeam(teamid)}>Add Team Member</button>
-            <button className='btn btn-accent col-span-1' onClick={()=>handleManageRoles}>Manage Team Roles</button>
-            <button className='btn btn-accent col-span-1' onClick={()=>handleTeamDocuments}>Manage Team Role Documents</button>
+            <button className='btn btn-accent col-span-1' onClick={()=>handleAddToTeam()}>Manage Team Members</button>
+            <button className='btn btn-accent col-span-1' onClick={()=>handleManageRoles()}>Manage Team Roles</button>
+            <button className='btn btn-accent col-span-1' onClick={()=>handleTeamDocuments()}>Manage Role Documents</button>
         </div>
     );
 }

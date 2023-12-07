@@ -23,4 +23,4 @@ const TeamMembersPage  = async ({params}:any) => {
         </div>
     </div>
   );}
-export default TeamMembersPage
+export default TeamMembersPage ;

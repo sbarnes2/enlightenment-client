@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function TrainingRequired({currentdoc}:any){
     //const {userid,documentid,documentqtid,documenttitle,usercurrentrevision,rev}  = currentdoc || {};
-    const {userid,userrstateid,doc_id,documentnumber,documentname,usercurrentrevision,rev,risklevel}  = currentdoc || {};
+    const {userid,userrstateid,doc_id,documentcode,documentname,usercurrentrevision,rev,risklevel}  = currentdoc || {};
 
     const router = useRouter();
 
@@ -28,7 +28,7 @@ export default function TrainingRequired({currentdoc}:any){
                 query: {docid: doc_id}
                 }}
                 >
-                    {documentnumber}</Link>
+                    {documentcode}</Link>
                 </td>
             <td>{documentname}</td><td>{usercurrentrevision}</td><td>{rev}</td><td>{risklevel}</td><td><button className='btn btn-primary' onClick={()=>updatetrainingrecord()}>mark as Trained</button></td>
         </tr>
