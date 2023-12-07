@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 function TeamButtonSet (params:any):any {
     const router = useRouter();
-    const team_id = teamid.team_id;
+    const team_id = params.team_id;
 
     function handleAddToTeam(){router.push('/admin/users/'+team_id);}
     function handleManageRoles(){router.push('/admin/roles/team/'+team_id);}
