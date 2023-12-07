@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 
 
 
-function TeamButtonSet (teamid:any):any {
+function TeamButtonSet (params:any):any {
     const router = useRouter();
     const team_id = teamid.team_id;
 
