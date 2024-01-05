@@ -12,17 +12,21 @@ const DocumentCard = ({d}:any) =>{
     function goToDocument(id:number){
         router.push('https://mybinxhealth.qt9app1.com/documents.aspx?docid='+id);
     }
+
+    function assignToTeam(id:number){
+        router.push('http://localhost:3000/');
+    }
+
     return  (
-        <div className="card top-10">
-            <figure>
-                {/* eslint-disable-next-line @next/next/no-img-element*/}
-                 <img src='/document.png' width='80' height='80' alt='user'/>
-            </figure>
-            <div className="card-body flex items-center">
+        <div className="card w-96 bg-primary text-primary-content">
+            <div className="card-body">
                 <div className="card-title">{d.documentnumber}</div>
+                <p>{d.documentcode}</p>
                 <p>{d.documentname}</p>
+                <p>Revision : {d.rev}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary" onClick={()=>goToDocument(d.doc_id)}>View</button>
+                    <button className="btn" onClick={()=>goToDocument(d.doc_id)}>View</button>
+                    <button className="btn" onClick={()=>assignToTeam(d.doc_id)}>Assign</button>
                 </div>
             </div>
         </div>

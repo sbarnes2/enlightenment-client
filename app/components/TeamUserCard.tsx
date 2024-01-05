@@ -7,11 +7,8 @@ import React from "react";
 
 
 export default function TeamUserCard({currentuser}:any){
-
-
-
     const router = useRouter();
-    var button_text = 'Add to team';
+
     function confirmAction(){
         if(isTeamMember())
         {
@@ -36,10 +33,12 @@ export default function TeamUserCard({currentuser}:any){
 
     var button_class = isTeamMember()?'btn btn-warning':'btn btn-secondary';
 
+    var button_text =  isTeamMember()?'delete from team':'Add to team';
+
+
     async function removeFromTeam(){
        
         const res = await fetch(`http://localhost:8080/api/users/removefromteam/`+currentuser.userid,{cache:"no-store"});
-        const c = res.json();
         router.replace('http://localhost:3000/admin/team/'+currentuser.team_id);
     };
 

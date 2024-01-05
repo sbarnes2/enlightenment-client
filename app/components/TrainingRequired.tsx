@@ -10,17 +10,29 @@ export default function TrainingRequired({currentdoc}:any){
 
     const router = useRouter();
 
-    const updatetrainingrecord = async () =>{
+    const processtrainingrecord = async () =>{
+        //get the documents priority
+        const res_priority = await fetch('',{cache:"no-store"});
+        const priority = await res_priority.json();
+
+        if(priority==='high'){
+            //notify the users manager to complete update of the training record.
+         } 
+         updateTrainingRecord(false);
+        router.push(`/documents/${userid}`);
+    }
+    
+    async function updateTrainingRecord(provisional:boolean){
         const res = await fetch(`http://localhost:8000/api/documents/updateuserdocument`,{
             method: 'POST',
             headers:{
                 'Content-Type':'application/json',
             },
-            body: JSON.stringify({userid,userrstateid}),
+            body: JSON.stringify({userid,userrstateid,provisional}),
         });
-        router.push(`/documents/${userid}`);
     }
-    
+
+
     return (
         <tr key={userrstateid}>
             <td><Link href={{ 
@@ -30,7 +42,7 @@ export default function TrainingRequired({currentdoc}:any){
                 >
                     {documentcode}</Link>
                 </td>
-            <td>{documentname}</td><td>{usercurrentrevision}</td><td>{rev}</td><td>{risklevel}</td><td><button className='btn btn-primary' onClick={()=>updatetrainingrecord()}>mark as Trained</button></td>
+            <td>{documentname}</td><td>{usercurrentrevision}</td><td>{rev}</td><td>{risklevel}</td><td><button className='btn btn-primary' onClick={()=>processtrainingrecord()}>mark as Trained</button></td>
         </tr>
     )
 

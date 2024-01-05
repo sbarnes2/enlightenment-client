@@ -17,6 +17,8 @@ export default function UserCard({currentuser}:any,){
         }
     };
 
+
+
     async function deleteuser () {
         
     }
@@ -33,7 +35,7 @@ export default function UserCard({currentuser}:any,){
                 <p>{currentuser.name != ''?currentuser.name:'Employee'}</p>
                 <div className="card-actions grid grid-cols-3">
                     <button className="btn btn-primary" onClick={() => router.push(`/documents/${currentuser.userid}`)}>outstanding documents</button>
-                    <button className="btn btn-primary" onClick={() => router.push(`/admin/roles/${currentuser.userid}`)}>Manage Roles</button>
+                    <button className="btn btn-primary" onClick={() => router.push(`/admin/roles/${currentuser.userid}`)}>View User Roles</button>
                     <button className="btn btn-warning" onClick={() => confirmdelete()}>Delete User</button>
                  </div>
             </div>

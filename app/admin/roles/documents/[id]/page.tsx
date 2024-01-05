@@ -37,8 +37,8 @@ function ManageRoleDocuments({params}:any){
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content">
                 <div className="card w-96 bg-base-100 shadow-xl">
-                    <div className="card-header"><
-                        div className="text-2xl">Manage Role Documents</div>
+                    <div className="card-header">
+                        <div className="text-2xl">Manage Role Documents</div>
                     </div>
                     <div className="card-body card-actions grid">
                         <form onSubmit={handleSubmit(onSubmit)}>

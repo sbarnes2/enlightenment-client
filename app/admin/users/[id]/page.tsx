@@ -31,14 +31,14 @@ const UsersPage  = async ({params}:any) => {
 
     for(const element of users) {
         element.target_team_id = team_id;
-   }
+    }
 
-  return(    
+    return(    
         <div className='pt-10'>
             <p className='text-5xl font-bold'>{team_name.name}</p>
             <TeamUserCardContainer userdata={users}/>
         </div>
-  );
+    );
 
 }
 

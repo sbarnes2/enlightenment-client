@@ -16,7 +16,6 @@ async function AllRoles({params}:any){
     async function getTeamName(id:number){
         const result = await fetch('http://localhost:8080/api/team/getname/'+id,{cache:'no-store'});
         const team:any  = await result.json();
-        console.log(JSON.stringify(team))
         return team.name;
     }
 

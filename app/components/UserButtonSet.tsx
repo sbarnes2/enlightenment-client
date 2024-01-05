@@ -6,17 +6,16 @@ import { useRouter } from 'next/navigation';
 
 function UserButtonSet (userid:any):any {
     const router = useRouter();
-    const id = 4;
+
+    console.log(JSON.stringify(userid));
+
+    const id = userid;
 
     function handleAddUser(){router.push('/admin/users/add/'+id);}
-    function handleManageRoles(){router.push('@/admin/roles');}
-    function handleTeamDocuments(){}
 
     return (
-        <div className='grid gap-4 grid-cols-3 items-center'>
+        <div className='px-5 my-10'>
             <button className='btn btn-accent col-span-1' onClick={()=>handleAddUser()}>Add New User</button>
-            <button className='btn btn-accent col-span-1' onClick={()=>handleManageRoles}>Manage Roles</button>
-            <button className='btn btn-accent col-span-1' onClick={()=>handleTeamDocuments}>Manage Team Role Documents</button>
         </div>
     );
 }
